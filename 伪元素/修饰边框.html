@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪元素边框修饰</title>
+    <style>
+        .squares {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            width: 15em;
+            height: 15em;
+            font-size: 10px;
+        }
+        .squares div {
+            position: absolute;
+            box-sizing: border-box;
+            border: 1em solid dimgray;
+        }
+        .squares div:nth-child(1) {
+            width: 100%;
+            height: 100%;
+        }
+        .squares div:nth-child(2) {
+            width: 70%;
+            height: 70%;
+        }
+        .squares div:nth-child(3) {
+            width: 40%;
+            height: 40%;
+        }
+        .squares div::before,
+        .squares div::after {
+            position: absolute;
+            content: '';
+            width: 1em;
+            height: calc(50% + 1em);
+            background-color: gold;
+        }
+        .squares div::before{
+            top: -1em;
+            left: -1em;
+        }
+        .squares div::after {
+            bottom: -1em;
+            right: -1em;
+        }
+    </style>
+</head>
+<body>
+    <figure class="squares">
+        <div></div>
+        <div></div>
+        <div></div>
+    </figure>
+</body>
+</html>
